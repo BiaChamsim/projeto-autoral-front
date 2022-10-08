@@ -1,21 +1,53 @@
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 import pig from "../Assets/images/pig.png";
 
 
 export default function Login(){
 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState ("");
 
+    const navigate = useNavigate();
 
+    
+
+    function enter(){
+
+        const body = {
+            email,
+            password
+        }
+
+        const promise = axios.post('http://localhost:5000/signin', body)
+
+        promise.then(response => {
+            navigate("/home")
+            
+        })
+
+        promise.catch(error => {
+            const erros = []
+            if (error.response.data.datails){
+                error.response.data.details.map(erro => erros.push(erro))
+            }else{
+                erros.push(error.response.data.message)
+            }
+            const errorText = erros.join("\n")
+            alert(errorText)
+        })
+
+    }
 
     return(
         <Content>
             <h1>Reward Me</h1>
-            <Input placeholder="email"/>
-            <Input placeholder="senha"/>
-            <Button>Entrar</Button>
+            <Input placeholder="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)}/>
+            <Input placeholder="senha" type="password" value={password} onChange={(event) => setPassword(event.target.value)}/>
+            <Button onClick={enter}>Entrar</Button>
             <Cadastro to="/signup" style={{textDecoration: 'none'}}>Não tem uma conta? Cadastre-se!</Cadastro>
         </Content>
     )

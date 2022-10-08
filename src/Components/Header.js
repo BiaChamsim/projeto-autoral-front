@@ -21,18 +21,19 @@ const Top = styled.div`
     left: 0;
     top: 0;
     height: 70px;
-    background-color: #cc8f88;
+    background-color: #606c38;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    padding-left: 2%;
 
     h1{
         font-family: 'Secular One';
         font-size: 30px;
         color: #FFFFFF;
-        font-weight: 400;      
-        margin-left: 2%;
+        font-weight: 400;
     }
 
     span{

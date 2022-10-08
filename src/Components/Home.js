@@ -47,12 +47,17 @@ export default function Home(){
         <>
             <Header/>
             <Container>
-            <Days>
-                {selectedDay.map((day, index) => {return <DayButton onClick={() => selectDay(day.id)} selected={day.isSelected} key={index}>{day.name}</DayButton>})}
-            </Days>
-            <Today>
-                <h1>Today, October 5, 2022</h1>
-            </Today>
+                <div>
+                    <Days>
+                        {selectedDay.map((day, index) => {return <DayButton onClick={() => selectDay(day.id)} selected={day.isSelected} key={index}>{day.name}</DayButton>})}
+                    </Days>
+                    <Today>
+                        <h1>Today, October 5, 2022</h1>
+                    </Today>
+                </div>
+                
+    
+
             </Container>  
             <Menu/>      
         </>
@@ -64,7 +69,11 @@ const Container = styled.div`
     height: 100vh;
     font-size: 18px;
     background-color: 	#FFFAFA;
-    //background-color: #f3c7c6;
+
+    > :first-child{
+        width: 100%;
+        position: fixed;
+    }
 `
 
 const Days = styled.div`
@@ -72,7 +81,10 @@ const Days = styled.div`
     height: 34px;
     display: flex;  
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 2% 0 2%;
+    box-sizing: border-box;
+
     
     //margin-bottom: 20px;
     //align-self: start;
@@ -89,8 +101,8 @@ const DayButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${props => props.selected ? "#4F4F4F" : "#363636"};
-    background-color: ${props => props.selected ? "#cc8f88" : "#9ab4b3"};
+    color: ${props => props.selected ? "#283618" : "#fefae0"};
+    background-color: ${props => props.selected ? "#dda15e" : "#bc6c25"};
     border: 1px solid ;
     border-radius: 50px;
     transition: all .2s ease-in-out;
@@ -108,7 +120,7 @@ const Today = styled.div`
     display: flex;
     align-items: center;
     color: #4F4F4F;
-    margin-left: 2%;
+    padding-left: 2%;
 
     h1{
         font-family: 'Secular One';

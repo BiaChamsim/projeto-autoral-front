@@ -89,7 +89,7 @@ const Content = styled.div`
     height: 8vh;
     left: 0;
     bottom: 0;
-    background-color: #e5cd83;
+    background-color: #dda15e;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -138,80 +138,88 @@ const Withdraw = styled(GiReceiveMoney)`
 `;
 
 const Dialog = styled(Modal)`
-    height: 26%;
-    background-color: #9ab4b3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: #000 2px 2px 6px;
-    width: 80%;
-    margin: 20% auto;
-    border-radius: 10px;
-    background: -webkit-linear-gradient(#fff, #999);
-    
+  height: 30%;
+  background-color: #9ab4b3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: #D2B48C 2px 2px px;
+  max-width: 50%;
+  margin: 20% auto;
+  //padding: 2%;
+  border-radius: 30px;
+  background: -webkit-linear-gradient(#E3FF86, #66793B);
+  //border: 2px solid #66793B;
 
-    p{
-      //background-color: green;
-      width: 90%;
-      display: flex;
-      justify-content: space-between;
-    }
+  p{
+    //background-color: green;
+    width: 90%;
+    height: 16%;
+    display: flex;
+    justify-content: space-between;
+  }
 
 `;
 
 const Input = styled.input`
-    width: 90%;
-    height: 26%;
-    //margin-bottom: 4%;
-    border-radius: 5px;
-    border: none;
-    box-shadow: #4F4F4F 1px 1px 4px
+  width: 90%;
+  min-height: 16%;
+  border-radius: 5px;
+  border: none;
+  box-shadow: #4F4F4F 1px 1px 4px;
     
 `
 
 const BoxDayButton = styled.button`
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: ${props => props.selected ? "#363636" : "#4F4F4F"};
-    background-color: ${props => props.selected ? "#cc8f88" : "#f3c7c6"};
-    border: 1px solid ;
-    border-radius: 3px;
-    transition: all .2s ease-in-out;
-    :hover {top:-4px;box-shadow: 2px 2px 6px #999};
-    cursor: pointer;
-    box-shadow: #4F4F4F 2px 2px 6px;
-    margin: 3% 0 6%;
-    border: none;
-    
+  min-width: 8%;
+  max-width: 12%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${props => props.selected ? "#363636" : "#fefae0"};
+  background-color: ${props => props.selected ? "#bc6c25" : "#606c38"};
+  border: 1px solid ;
+  border-radius: 3px;
+  transition: all .2s ease-in-out;
+  :hover {top:-4px;box-shadow: 2px 2px 6px #999};
+  cursor: pointer;
+  box-shadow: #4F4F4F 2px 2px 4px;
+  //margin: 6% 0 16%;
+  border: none;
+  
 `
 
 const Payment = styled.div`
-    font-family: 'Secular One';
-    width: 90%;
+  font-family: 'Secular One';
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4F4F4F;
+  flex-wrap: wrap;
+  //background-color: red;
+  
+  h4{ 
+      color: #283618;
+      margin-right: 4%;
+  }
+  
+  div{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #4F4F4F;
-    
-    h4{ 
-        //text-shadow: #4F4F4F 1px 1px 1px;
-    }
-    
-    div{
-        width: 50%;
-        display: flex;
-        justify-content: space-between;
-    }
+    justify-content: space-between
+    //background-color: red;
+  }
 
-    button{
-        width: 40px;
-        height: 40px;
-        border-radius: 50px;
-        border: none;
-        box-shadow: #4F4F4F 2px 2px 6px;
-    }
+  button{
+      width: 16%;
+      border-radius: 50px;
+      border: none;
+      color: #283618;
+      background-color: #E1FF81;
+      box-shadow: #4F4F4F 2px 2px 6px;
+  }
 `

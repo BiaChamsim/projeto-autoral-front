@@ -11,27 +11,24 @@ export default function SignUp(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState ("");
     const [passwordConfirmation, setPasswordConfirmation] = useState ("");
-    const [isLoading, setIsLoading] = useState(false);
+    //const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate()
 
     function register(){
-
-        setIsLoading(true);
 
         const body = {
             name,
             email,
             password,
             passwordConfirmation
-        }
-
+        };
     
-        const promise = axios.post('', body)
+        const promise = axios.post('http://localhost:5000/signup', body)
     
         promise.then(response => {
             navigate("/")
-            setIsLoading(false);
+            //setIsLoading(false);
         })
         promise.catch(error => {
             const erros = []
@@ -42,19 +39,18 @@ export default function SignUp(){
             }
             const errorText = erros.join("\n")
             alert(errorText)
-            setIsLoading(false);
+            //setIsLoading(false);
         })
-
     }
 
     return(
         <Content>
             <h1>Reward Me</h1>
-            <Input placeholder="nome"></Input>
-            <Input placeholder="email"></Input>
-            <Input placeholder="senha"></Input>
-            <Input placeholder="confirmação de senha"></Input>
-            <Button>Entrar</Button>
+            <Input placeholder="nome" type="text" value={name} onChange={(event) => setName(event.target.value)}></Input>
+            <Input placeholder="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)}></Input>
+            <Input placeholder="senha" type="password" value={password} onChange={(event) => setPassword(event.target.value)}></Input>
+            <Input placeholder="confirmação de senha" type="password" value={passwordConfirmation} onChange={(event) => setPasswordConfirmation(event.target.value)}></Input>
+            <Button onClick={register}>Entrar</Button>
             <Cadastro to="/" style={{textDecoration: 'none'}}>Já tem uma conta? Faça login!</Cadastro>
         </Content>
     )
@@ -89,7 +85,6 @@ const Content = styled.div`
     }
   }
 `
-
 
 const Input = styled.input `
     color: "#AFAFAF";
